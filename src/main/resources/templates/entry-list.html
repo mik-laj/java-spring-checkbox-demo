@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <h1></h1>
+    <ul th:each="entry: ${entryList}">
+        <li>
+            <h1>
+                <a th:href="@{/entry/{id}/(id=${entry.id})}" th:text="${entry.name}"></a>
+                <small><a th:href="@{/entry/{id}/edit(id=${entry.id})}">[Edytuj]</a></small>
+            </h1>
+            <p>Tags:
+                <a th:each="tag, iterStat : ${entry.tagList}"
+                   th:text="!${iterStat.last} ? ${tag.name} + ',': ${tag.name}"
+                   th:href="@{/tag/{id}/(id=${tag.id})}"></a>
+            </p>
+        </li>
+    </ul>
+</body>
+</html>

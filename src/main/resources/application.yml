@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    initialize: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+        type: trace
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+  thymeleaf:
+    cache: false
+management:
+  security:
+    enabled: false
